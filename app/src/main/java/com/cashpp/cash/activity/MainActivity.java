@@ -3,6 +3,7 @@ package com.cashpp.cash.activity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,10 +14,13 @@ import android.widget.ListAdapter;
 import com.cashpp.cash.R;
 import com.cashpp.cash.adapter.NavDrawerMenuAdapter;
 import com.cashpp.cash.adapter.NavDrawerMenuItem;
+import com.cashpp.cash.fragment.SummaryFragment;
 
 import java.util.List;
 
 import livroandroid.lib.fragment.NavigationDrawerFragment;
+
+import android.support.v4.app.Fragment;
 
 public class MainActivity extends BaseActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
     private NavigationDrawerFragment mNavDrawerFragment;
@@ -62,7 +66,24 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         NavDrawerMenuItem selectedItem = list.get(position);
         // Seleciona a linha
         this.listAdapter.setSelected(position, true);
-        toast("Clicou no item: " + getString(selectedItem.title));
+        if (position == 0) {
+            replaceFragment(new SummaryFragment());
+        } else if (position == 1) {
+
+        } else if (position == 2) {
+
+        } else if (position == 3) {
+
+        } else if (position == 4) {
+
+        } else {
+            Log.e("cashapp", "Item de menu inválido");
+        }
+//        toast("Clicou no item: " + getString(selectedItem.title));
+    }
+
+    private void replaceFragment(Fragment frag) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_drawer_container, frag, "TAG").commit();
     }
 
     @Override
