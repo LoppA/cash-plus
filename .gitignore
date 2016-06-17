@@ -1,8 +1,19 @@
-*.iml
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
+# built application files
+*.apk
+*.ap_
+
+# generated files
 /build
 /captures
+
+# local configuration files (sdk path, etc)
+local.properties
+
+# Android Studio and Gradle specific entries
+.gradle
+.idea
+*.iml
+build
+
+# OSX
+.DS_Store
