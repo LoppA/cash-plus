@@ -12,14 +12,14 @@ public class Entry {
     public Entry() {}
 
     public Entry(Integer id, String title, double value, String type, String date,
-                 Integer recurrence, Integer catogory_id) {
+                 Integer recurrence, Integer category_id) {
         this._id = id;
         this.title = title;
         this.value = value;
         this.type = type;
         this.date = date;
         this.recurrence = recurrence;
-        this.category_id = catogory_id;
+        this.category_id = category_id;
     }
 
     public Integer get_id() {
