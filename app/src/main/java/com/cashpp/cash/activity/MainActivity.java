@@ -86,20 +86,5 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
     private void replaceFragment(Fragment frag) {
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_drawer_container, frag, "TAG").commit();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_about) {
-            toast("Clicou no Sobre");
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+    
 }
