@@ -14,6 +14,10 @@ import android.widget.ListAdapter;
 import com.cashpp.cash.R;
 import com.cashpp.cash.adapter.NavDrawerMenuAdapter;
 import com.cashpp.cash.adapter.NavDrawerMenuItem;
+import com.cashpp.cash.fragment.CategoriesFragment;
+import com.cashpp.cash.fragment.GoalsFragment;
+import com.cashpp.cash.fragment.RemindersFragment;
+import com.cashpp.cash.fragment.SettingsFragment;
 import com.cashpp.cash.fragment.SummaryFragment;
 
 import java.util.List;
@@ -70,13 +74,13 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         if (position == 0) {
             replaceFragment(new SummaryFragment());
         } else if (position == 1) {
-
+            replaceFragment(new CategoriesFragment());
         } else if (position == 2) {
-
+            replaceFragment(new GoalsFragment());
         } else if (position == 3) {
-
+            replaceFragment(new RemindersFragment());
         } else if (position == 4) {
-
+            replaceFragment(new SettingsFragment());
         } else {
             Log.e("cashapp", "Item de menu inválido");
         }
