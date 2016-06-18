@@ -1,4 +1,11 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <item name="ic_menu_summary" type="drawable">@mipmap/ic_menu_summary</item>
+    <item name="ic_menu_categories" type="drawable">@mipmap/ic_menu_categories</item>
+    <item name="ic_menu_goals" type="drawable">@mipmap/ic_menu_goals</item>
+    <item name="ic_menu_reminders" type="drawable">@mipmap/ic_menu_reminders</item>
+    <item name="ic_menu_settings" type="drawable">@mipmap/ic_menu_settings</item>
+
+
     <item name="ic_menu_camera" type="drawable">@android:drawable/ic_menu_camera</item>
     <item name="ic_menu_gallery" type="drawable">@android:drawable/ic_menu_gallery</item>
     <item name="ic_menu_slideshow" type="drawable">@android:drawable/ic_menu_slideshow</item>

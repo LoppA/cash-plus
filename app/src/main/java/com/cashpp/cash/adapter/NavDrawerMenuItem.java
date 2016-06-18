@@ -20,11 +20,11 @@ public class NavDrawerMenuItem {
     // Cria a lista com os itens de menu
     public static List<NavDrawerMenuItem> getList() {
         List<NavDrawerMenuItem> list = new ArrayList<NavDrawerMenuItem>();
-        list.add(new NavDrawerMenuItem(R.string.resumo, R.drawable.ic_menu_camera));
-        list.add(new NavDrawerMenuItem(R.string.categorias, R.drawable.ic_menu_gallery));
-        list.add(new NavDrawerMenuItem(R.string.metas, R.drawable.ic_menu_manage));
-        list.add(new NavDrawerMenuItem(R.string.lembretes, R.drawable.ic_menu_send));
-        list.add(new NavDrawerMenuItem(R.string.configuracoes, R.drawable.ic_menu_share));
+        list.add(new NavDrawerMenuItem(R.string.summary, R.drawable.ic_menu_summary));
+        list.add(new NavDrawerMenuItem(R.string.categories, R.drawable.ic_menu_categories));
+        list.add(new NavDrawerMenuItem(R.string.goals, R.drawable.ic_menu_goals));
+        list.add(new NavDrawerMenuItem(R.string.reminders, R.drawable.ic_menu_reminders));
+        list.add(new NavDrawerMenuItem(R.string.settings, R.drawable.ic_menu_settings));
         return list;
     }
 }

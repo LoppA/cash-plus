@@ -7,11 +7,11 @@
     <string name="nav_drawer_email">user@email</string>
 
     <string name="action_about">Sobre</string>
-    <string name="resumo">Resumo</string>
-    <string name="categorias">Categorias</string>
-    <string name="metas">Metas</string>
-    <string name="lembretes">Lembretes</string>
-    <string name="configuracoes">Configurações</string>
+    <string name="summary">Resumo</string>
+    <string name="categories">Categorias</string>
+    <string name="goals">Metas</string>
+    <string name="reminders">Lembretes</string>
+    <string name="settings">Configurações</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

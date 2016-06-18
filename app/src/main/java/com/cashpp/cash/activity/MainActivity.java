@@ -65,6 +65,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         List<NavDrawerMenuItem> list = NavDrawerMenuItem.getList();
         NavDrawerMenuItem selectedItem = list.get(position);
         // Seleciona a linha
+        setTitle(selectedItem.title);
         this.listAdapter.setSelected(position, true);
         if (position == 0) {
             replaceFragment(new SummaryFragment());
