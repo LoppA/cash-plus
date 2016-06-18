@@ -3,13 +3,13 @@ package com.cashpp.cash.model;
 public class Reminder {
     private Integer _id;
     private String title;
-    private double value;
+    private Double value;
     private String date;
     private Integer recurrence;
 
     public Reminder() {}
 
-    public Reminder(Integer id, String title, double value, String date, Integer recurrence) {
+    public Reminder(Integer id, String title, Double value, String date, Integer recurrence) {
         this._id = id;
         this.title = title;
         this.value = value;
@@ -33,11 +33,11 @@ public class Reminder {
         this.title = title;
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
