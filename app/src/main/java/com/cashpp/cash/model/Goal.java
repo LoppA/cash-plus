@@ -1,20 +1,18 @@
-package model;
+package com.cashpp.cash.model;
 
-public class Reminder {
+public class Goal {
     private Integer _id;
     private String title;
     private double value;
     private String date;
-    private Integer recurrence;
 
-    public Reminder() {}
+    public Goal() {}
 
-    public Reminder(Integer id, String title, double value, String date, Integer recurrence) {
+    public Goal(Integer id, String title, double value, String date) {
         this._id = id;
         this.title = title;
         this.value = value;
         this.date = date;
-        this.recurrence = recurrence;
     }
 
     public Integer get_id() {
@@ -47,13 +45,5 @@ public class Reminder {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public Integer getRecurrence() {
-        return recurrence;
-    }
-
-    public void setRecurrence(Integer recurrence) {
-        this.recurrence = recurrence;
     }
 }

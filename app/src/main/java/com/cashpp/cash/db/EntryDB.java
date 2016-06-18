@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Entry;
+import com.cashpp.cash.model.Entry;
 
 public class EntryDB {
     private DatabaseHelper databaseHelper;

@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Goal;
+import com.cashpp.cash.model.Goal;
 
 public class GoalDB {
     private DatabaseHelper databaseHelper;

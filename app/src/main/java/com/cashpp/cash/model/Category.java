@@ -1,4 +1,4 @@
-package model;
+package com.cashpp.cash.model;
 
 public class Category {
     private Integer _id;

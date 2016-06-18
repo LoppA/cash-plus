@@ -1,25 +1,20 @@
-package model;
+package com.cashpp.cash.model;
 
-public class Entry {
+public class Reminder {
     private Integer _id;
     private String title;
     private double value;
-    private String type;
     private String date;
     private Integer recurrence;
-    private Integer category_id;
 
-    public Entry() {}
+    public Reminder() {}
 
-    public Entry(Integer id, String title, double value, String type, String date,
-                 Integer recurrence, Integer category_id) {
+    public Reminder(Integer id, String title, double value, String date, Integer recurrence) {
         this._id = id;
         this.title = title;
         this.value = value;
-        this.type = type;
         this.date = date;
         this.recurrence = recurrence;
-        this.category_id = category_id;
     }
 
     public Integer get_id() {
@@ -46,14 +41,6 @@ public class Entry {
         this.value = value;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getDate() {
         return date;
     }
@@ -68,13 +55,5 @@ public class Entry {
 
     public void setRecurrence(Integer recurrence) {
         this.recurrence = recurrence;
-    }
-
-    public Integer getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(Integer category_id) {
-        this.category_id = category_id;
     }
 }

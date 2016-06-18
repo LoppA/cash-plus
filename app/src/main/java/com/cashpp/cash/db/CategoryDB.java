@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Category;
+import com.cashpp.cash.model.Category;
 
 public class CategoryDB {
     private DatabaseHelper databaseHelper;
