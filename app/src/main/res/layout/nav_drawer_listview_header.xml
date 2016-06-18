@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="?attr/colorPrimaryDark"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:orientation="vertical"
+    android:gravity="bottom">
+
+    <LinearLayout
+        android:id="@+id/userData"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/userData_layout_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/userData_layout_marginBottom"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imgUserBackground"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/userBackground_layout_height"
+        android:contentDescription="@string/empty"
+        android:src="@drawable/nav_drawer_header"
+        android:scaleType="fitXY" />
+    </LinearLayout>
+
+</RelativeLayout>
+    <!--
+    Para compatibilidade com Android 4a edicao
+    Atualizar menu para:
+    http://ricardolecheta.com.br/?p=699
+    Exemplo:
+    https://github.com/livroandroid/5ed
+    --><!-- From: file:/C:/git/AndroidUtils/app/src/main/res/layout/nav_drawer_listview_header.xml -->

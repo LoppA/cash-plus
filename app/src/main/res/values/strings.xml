@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Cash++</string>
+
+    <string name="hello_world">Hello World!</string>
+
+    <string name="nav_drawer_username">Username</string>
+    <string name="nav_drawer_email">user@email</string>
+
+    <string name="action_about">Sobre</string>
+    <string name="summary">Resumo</string>
+    <string name="categories">Categorias</string>
+    <string name="goals">Metas</string>
+    <string name="reminders">Lembretes</string>
+    <string name="settings">Configurações</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
