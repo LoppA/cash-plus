@@ -6,6 +6,10 @@
     <string name="nav_drawer_username">Username</string>
     <string name="nav_drawer_email">user@email</string>
 
+    <string name="categories_categories">Categorias</string>
+    <string name="categories_graphics">Gráficos</string>
+    <string name="summary_graphics">Gráficos</string>
+    <string name="summary_entries">Lançamentos</string>
     <string name="action_about">Sobre</string>
     <string name="summary">Resumo</string>
     <string name="categories">Categorias</string>

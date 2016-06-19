@@ -43,6 +43,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         mNavDrawerFragment.setUp(drawerLayout);
         // Cor do fundo da barra de status
         drawerLayout.setStatusBarBackground(R.color.primary_dark);
+
     }
 
 
