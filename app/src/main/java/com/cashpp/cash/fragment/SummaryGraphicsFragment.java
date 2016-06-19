@@ -30,7 +30,7 @@ public class SummaryGraphicsFragment extends BaseFragment {
         entries.add(new BarEntry(-18f, 4));
         entries.add(new BarEntry(5f, 5));
 
-        BarDataSet dataset = new BarDataSet(entries, "# of Calls");
+        BarDataSet dataset = new BarDataSet(entries, "Chart Summary");
 
         ArrayList<String> labels = new ArrayList<String>();
         labels.add("Aposta");
@@ -49,8 +49,8 @@ public class SummaryGraphicsFragment extends BaseFragment {
         int[] colors = new int[dataset.getEntryCount()];
 
         for (int i = 0; i<colors.length; i++){
-            colors[i] = Color.rgb(0,0,255);;
-            if (entries.get(i).getVal() < 0) colors[i]= Color.rgb(255,0,0);
+            colors[i] = getResources().getColor(R.color.primary_blue);
+            if (entries.get(i).getVal() < 0) colors[i]= getResources().getColor(R.color.primary_red);
         }
 
         dataset.setColors(colors);
