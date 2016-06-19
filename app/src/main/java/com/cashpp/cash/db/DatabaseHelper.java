@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 + "type TEXT NOT NULL,"
                 + "date TEXT NOT NULL,"
                 + "recurrence INTEGER,"
-                + "category_id INTEGER NOT NULL,"
+                + "category_id INTEGER NOT NULL"
                 + ")";
 
         db.execSQL(sql);
@@ -37,7 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         //Tabela de categorias de entradas
         sql = "CREATE TABLE categories("
                 + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "title TEXT NOT NULL,"
+                + "title TEXT NOT NULL"
                 + ")";
 
         db.execSQL(sql);
@@ -47,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "title TEXT NOT NULL,"
                 + "value DECIMAL(19,2) NOT NULL,"
-                + "date TEXT NOT NULL,"
+                + "date TEXT NOT NULL"
                 + ")";
 
         db.execSQL(sql);
@@ -58,12 +58,15 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 + "title TEXT NOT NULL,"
                 + "value DECIMAL(19,2) NOT NULL,"
                 + "date TEXT NOT NULL,"
-                + "recurrence INTEGER,"
+                + "recurrence INTEGER"
                 + ")";
 
         db.execSQL(sql);
 
         Log.d(TAG, "Tables created successfully.");
+
+        sql = "INSERT INTO categories(title) VALUES ('Alimentação')";
+        db.execSQL(sql);
     }
 
     @Override
