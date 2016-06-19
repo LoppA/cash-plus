@@ -39,7 +39,7 @@ public class SummaryFragment extends BaseFragment {
                 SummaryEntriesFragment.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("summarygraphicsfragment").setIndicator(getString(R.string.summary_graphics)),
                 SummaryGraphicsFragment.class, null);
-
+        
 
         /*Mudar a cor das string das tabs*/
         for (int i = 0; i < mTabHost.getTabWidget().getChildCount(); i++) {
