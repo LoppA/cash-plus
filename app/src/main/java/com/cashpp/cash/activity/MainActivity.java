@@ -16,6 +16,7 @@ import android.widget.ListAdapter;
 import com.cashpp.cash.R;
 import com.cashpp.cash.adapter.NavDrawerMenuAdapter;
 import com.cashpp.cash.adapter.NavDrawerMenuItem;
+import com.cashpp.cash.fragment.AddGoalsFragment;
 import com.cashpp.cash.fragment.CategoriesFragment;
 import com.cashpp.cash.fragment.GoalsFragment;
 import com.cashpp.cash.fragment.RemindersFragment;
@@ -105,8 +106,8 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
 //        toast("Clicou no item: " + getString(selectedItem.title));
     }
 
-    private void replaceFragment(Fragment frag) {
+    public void replaceFragment(Fragment frag) {
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_drawer_container, frag, "TAG").commit();
     }
-    
+
 }

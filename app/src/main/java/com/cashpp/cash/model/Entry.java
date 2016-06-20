@@ -3,7 +3,7 @@ package com.cashpp.cash.model;
 public class Entry {
     private Integer _id;
     private String title;
-    private double value;
+    private Double value;
     private String type;
     private String date;
     private Integer recurrence;
@@ -11,7 +11,7 @@ public class Entry {
 
     public Entry() {}
 
-    public Entry(Integer id, String title, double value, String type, String date,
+    public Entry(Integer id, String title, Double value, String type, String date,
                  Integer recurrence, Integer category_id) {
         this._id = id;
         this.title = title;
@@ -38,11 +38,11 @@ public class Entry {
         this.title = title;
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 

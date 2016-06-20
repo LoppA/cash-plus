@@ -11,6 +11,7 @@ public class BaseActivity extends livroandroid.lib.activity.BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_base);
     }
 
