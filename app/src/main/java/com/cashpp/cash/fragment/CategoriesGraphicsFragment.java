@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cashpp.cash.R;
+import com.cashpp.cash.adapter.MyValueFormatter;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.YAxis;
@@ -47,6 +48,9 @@ public class CategoriesGraphicsFragment extends BaseFragment {
         PieChart chart = (PieChart) view.findViewById(R.id.chart2);
 
         PieData data = new PieData(labels, dataset);
+
+        data.setValueFormatter(new MyValueFormatter());
+
         chart.setData(data);
 
 
