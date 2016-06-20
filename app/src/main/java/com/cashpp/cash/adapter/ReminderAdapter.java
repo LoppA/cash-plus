@@ -49,9 +49,11 @@ public class ReminderAdapter extends BaseAdapter {
         TextView txtTitle = (TextView) view.findViewById(R.id.reminders_list_title);
         TextView txtValue = (TextView) view.findViewById(R.id.reminders_list_value);
         TextView txtDate = (TextView) view.findViewById(R.id.reminders_list_date);
+        TextView txtReccurence = (TextView) view.findViewById(R.id.reminders_list_recurrence);
         txtTitle.setText(reminder.getTitle());
         txtValue.setText(reminder.getValue().toString());
         txtDate.setText(reminder.getDate());
+        txtReccurence.setText(reminder.getRecurrence().toString());
 
         return view;
 
