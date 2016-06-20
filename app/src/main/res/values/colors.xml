@@ -10,7 +10,9 @@
     <!-- Outras cores -->
 
     <color name="primary_red">#F44336</color>
+    <color name="primary_light_red">#EF5350</color>
     <color name="primary_blue">#3F51B5</color>
+    <color name="primary_light_blue">#5C6BC0</color>
     <color name="primary_orange">#FF5722</color>
     <color name="primary_green">#00C853</color>
     <color name="transparent">#0000</color>

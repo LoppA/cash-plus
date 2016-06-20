@@ -19,6 +19,8 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 
@@ -51,8 +53,13 @@ public class CategoriesGraphicsFragment extends BaseFragment {
 
         data.setValueFormatter(new MyValueFormatter());
 
-        chart.setData(data);
 
+        final float textSize = getContext().getResources().getDisplayMetrics().density;
+        int Textpixels = (int) (9 * textSize + 0.5f);
+
+        data.setValueTextSize(Textpixels);
+
+        chart.setData(data);
 
         /*Cores do PieChart*/
         ArrayList<Integer> colors = new ArrayList<Integer>();
@@ -60,7 +67,7 @@ public class CategoriesGraphicsFragment extends BaseFragment {
         colors.add(ColorTemplate.getHoloBlue());
         colors.add(getResources().getColor(R.color.primary_green));
         colors.add(getResources().getColor(R.color.primary_red));
-        colors.add(getResources().getColor(R.color.primary_blue));
+        colors.add(getResources().getColor(R.color.primary_light_blue));
         colors.add(getResources().getColor(R.color.primary_orange));
 
         for (int c : ColorTemplate.VORDIPLOM_COLORS)
