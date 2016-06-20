@@ -24,7 +24,7 @@ public class NavDrawerMenuItem {
         list.add(new NavDrawerMenuItem(R.string.categories, R.drawable.ic_menu_categories));
         list.add(new NavDrawerMenuItem(R.string.goals, R.drawable.ic_menu_goals));
         list.add(new NavDrawerMenuItem(R.string.reminders, R.drawable.ic_menu_reminders));
-        list.add(new NavDrawerMenuItem(R.string.settings, R.drawable.ic_menu_settings));
+        list.add(new NavDrawerMenuItem(R.string.exit, R.drawable.ic_menu_exit));
         return list;
     }
 }

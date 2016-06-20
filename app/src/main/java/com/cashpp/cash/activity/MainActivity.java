@@ -1,6 +1,8 @@
 package com.cashpp.cash.activity;
 
+import android.content.DialogInterface;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -70,7 +72,7 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         List<NavDrawerMenuItem> list = NavDrawerMenuItem.getList();
         NavDrawerMenuItem selectedItem = list.get(position);
         // Seleciona a linha
-        setTitle(selectedItem.title);
+        if (position != list.size() - 1) setTitle(selectedItem.title);
         this.listAdapter.setSelected(position, true);
         if (position == 0) {
             replaceFragment(new SummaryFragment());
@@ -81,7 +83,22 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         } else if (position == 3) {
             replaceFragment(new RemindersFragment());
         } else if (position == 4) {
-            replaceFragment(new SettingsFragment());
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Sair de Cash++")
+                    .setMessage("Deseja realmente sair?")
+                    .setPositiveButton("Sim", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+
+                    })
+                    .setNegativeButton("Não", null)
+                    .show();
+
+            //replaceFragment(new SettingsFragment());
         } else {
             Log.e("cashapp", "Item de menu inválido");
         }

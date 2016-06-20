@@ -1,11 +1,153 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lançamentos aqui"
-        android:layout_gravity="center"/>
+    <!-- Conteudo do fragmente -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="54dp"
+        android:background="@color/primary_background">
 
-</FrameLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/date_entries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mes Ano"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:background="@color/primary_dark"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/string_receita"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Receita:"
+                    android:textSize="18dp"
+                    android:layout_gravity="left"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/valor_receita"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="R$ 200,00"
+                    android:textSize="18dp"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/string_balanço"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Balanço:"
+                    android:textSize="18dp"
+                    android:layout_gravity="left"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/valor_balanço"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="R$ 300,00"
+                    android:textSize="18dp"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/string_despesa"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Despesa:"
+                    android:textSize="18dp"
+                    android:layout_gravity="left"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/valor_Despesa"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="R$ 100,00"
+                    android:textSize="18dp"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/string_saldo"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Receita:"
+                    android:textSize="18dp"
+                    android:layout_gravity="left"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/valor_saldo"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="R$ 1000,00"
+                    android:textSize="18dp"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -63,6 +63,7 @@ public class NavDrawerMenuAdapter extends BaseAdapter {
         return view;
     }
     public void setSelected(int position, boolean selected) {
+        if (position == list.size() - 1) return;
         clearSelected();
         list.get(position).selected = selected;
         notifyDataSetChanged();

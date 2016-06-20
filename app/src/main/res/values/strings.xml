@@ -6,6 +6,7 @@
     <string name="nav_drawer_username">Username</string>
     <string name="nav_drawer_email">user@email</string>
 
+    <string name="exit">Sair</string>
     <string name="categories_categories">Categorias</string>
     <string name="categories_graphics">Gráficos</string>
     <string name="summary_graphics">Gráficos</string>
