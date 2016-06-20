@@ -20,6 +20,7 @@ public class MyValueFormatter implements ValueFormatter {
     @Override
     public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
         // write your logic here
+    //  return "";
         return "RS " + mFormat.format(value); // e.g. append a dollar-sign
     }
 }

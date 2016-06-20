@@ -27,7 +27,7 @@ public class SummaryGraphicsFragment extends BaseFragment {
 
         ArrayList<BarEntry> entries = new ArrayList<>();
         entries.add(new BarEntry(4.42f, 0));
-        entries.add(new BarEntry(5f, 1));
+        entries.add(new BarEntry(12f, 1));
         entries.add(new BarEntry(-6f, 2));
         entries.add(new BarEntry(2f, 3));
         entries.add(new BarEntry(-9f, 4));
@@ -36,18 +36,18 @@ public class SummaryGraphicsFragment extends BaseFragment {
 
 
         ArrayList<String> labels = new ArrayList<>();
-        labels.add("Aposta");
-        labels.add("Venda");
-        labels.add("Conta");
-        labels.add("Jogo");
-        labels.add("Mercado");
+        labels.add("__________Aposta");
+        labels.add("__________Venda");
+        labels.add("__________Conta");
+        labels.add("__________Jogo");
+        labels.add("__________Mercado");
 
 
         HorizontalBarChart chart = (HorizontalBarChart) view.findViewById(R.id.chart1);
 
         BarData data = new BarData(labels, dataset);
 
-        data.setValueFormatter(new MyValueFormatter2());
+        data.setValueFormatter(new MyValueFormatter());
 
         chart.setData(data);
 
