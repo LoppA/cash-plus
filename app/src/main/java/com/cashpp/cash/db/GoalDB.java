@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.ContactsContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,7 @@ public class GoalDB {
 
     public List<Goal> listGoals() {
         Cursor cursor = getDatabase().query(DatabaseHelper.Goals.TABLE,
-                DatabaseHelper.Goals.COLUMNS, null, null, null, null, null);
-
+                DatabaseHelper.Goals.COLUMNS, null, null, null, null, DatabaseHelper.Goals.DATE);
         List<Goal> goals = new ArrayList<Goal>();
 
         while (cursor.moveToNext()) {
