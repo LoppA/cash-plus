@@ -56,7 +56,7 @@ public class SummaryGraphicsFragment extends BaseFragment {
 
         for (int i = 0; i<colors.length; i++){
             colors[i] = getResources().getColor(R.color.primary_blue);
-            if (entries.get(i).getVal() < 0.0) colors[i]= getResources().getColor(R.color.primary_red);
+            if (entries.get(i).getVal() < 0.0   ) colors[i]= getResources().getColor(R.color.primary_red);
         }
 
         dataset.setColors(colors);
