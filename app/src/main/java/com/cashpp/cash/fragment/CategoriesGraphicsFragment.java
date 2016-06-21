@@ -92,5 +92,4 @@ public class CategoriesGraphicsFragment extends BaseFragment {
 
         return view;
     }
-
 }

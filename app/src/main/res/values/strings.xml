@@ -22,6 +22,26 @@
     <string name="goal_date">Data limite para cumprir a meta</string>
     <string name="create_goal">Criar Meta</string>
     <string name="back">Voltar</string>
+    <string name="reminder_date">Data para notificação</string>
+    <string name="create_reminder">Criar Lembrete</string>
+    <string name="recurrence">Recorrência</string>
+    <string name="recurrence_prompt">Escolha uma recorrência</string>
+
+    <string-array name="recurrence_array">
+        <item>Sem recorrência</item>
+        <item>1 mês</item>
+        <item>2 meses</item>
+        <item>3 meses</item>
+        <item>4 meses</item>
+        <item>5 meses</item>
+        <item>6 meses</item>
+        <item>7 meses</item>
+        <item>8 meses</item>
+        <item>9 meses</item>
+        <item>10 meses</item>
+        <item>11 meses</item>
+        <item>12 meses</item>
+    </string-array>
 
     <string name="hello_blank_fragment">Hello Blank Fragment</string>
 
