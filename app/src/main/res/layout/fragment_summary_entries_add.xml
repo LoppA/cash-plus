@@ -40,13 +40,13 @@
         android:layout_height="wrap_content"
         android:text="@string/type"
         android:textColor="@color/black"
-        android:id="@+id/tv_value" />
+        android:id="@+id/tv_type" />
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rg_type"
-        android:checkedButton="@+id/sound" >
+        android:checkedButton="@+id/expense" >
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -61,6 +61,19 @@
             android:text="@string/income" />
 
     </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/category"
+        android:textColor="@color/black"
+        android:id="@+id/tv_category" />
+
+    <Spinner
+        android:id="@+id/sp_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:prompt="@string/category_prompt" />
 
     <TextView
         android:layout_width="wrap_content"

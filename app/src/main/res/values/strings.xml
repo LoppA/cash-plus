@@ -29,6 +29,10 @@
     <string name="recurrence">Recorrência</string>
     <string name="recurrence_prompt">Escolhe uma recorrência</string>
     <string name="create_entry">Criar Entrada</string>
+    <string name="create_category">Criar Categoria</string>
+    <string name="category_prompt">Escolha uma categoria</string>
+    <string name="category">Categoria</string>
+
 
     <string-array name="recurrence_array">
         <item>Sem recorrência</item>

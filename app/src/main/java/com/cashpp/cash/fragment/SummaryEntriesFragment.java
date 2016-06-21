@@ -47,10 +47,12 @@ public class SummaryEntriesFragment extends BaseFragment {
             }
         });
 
+        //Pegando os dados do BD para popular o ListView
         entry_db = new EntryDB((MainActivity) getActivity());
         entries_list = entry_db.listEntries();
         entry_adapter = new EntryAdapter((MainActivity) getActivity(), entries_list);
 
+        //ListView do layout
         list = (ListView) view.findViewById(R.id.lvEntries);
         list.setAdapter(entry_adapter);
 
