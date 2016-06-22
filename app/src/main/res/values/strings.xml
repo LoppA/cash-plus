@@ -34,8 +34,6 @@
     <string name="category">Categoria</string>
     <string name="reminder_date">Data para notificação</string>
     <string name="create_reminder">Criar Lembrete</string>
-    <string name="recurrence">Recorrência</string>
-    <string name="recurrence_prompt">Escolha uma recorrência</string>
 
     <string-array name="recurrence_array">
         <item>Sem recorrência</item>
