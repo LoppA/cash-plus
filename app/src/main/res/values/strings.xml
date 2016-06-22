@@ -22,6 +22,16 @@
     <string name="goal_date">Data limite para cumprir a meta</string>
     <string name="create_goal">Criar Meta</string>
     <string name="back">Voltar</string>
+    <string name="type">Tipo</string>
+    <string name="expense">Despesa</string>
+    <string name="income">Receita</string>
+    <string name="entry_date">Data da entrada</string>
+    <string name="recurrence">Recorrência</string>
+    <string name="recurrence_prompt">Escolhe uma recorrência</string>
+    <string name="create_entry">Criar Entrada</string>
+    <string name="create_category">Criar Categoria</string>
+    <string name="category_prompt">Escolha uma categoria</string>
+    <string name="category">Categoria</string>
     <string name="reminder_date">Data para notificação</string>
     <string name="create_reminder">Criar Lembrete</string>
     <string name="recurrence">Recorrência</string>
@@ -33,8 +43,8 @@
         <item>2 meses</item>
         <item>3 meses</item>
         <item>4 meses</item>
-        <item>5 meses</item>
-        <item>6 meses</item>
+		<item>5 meses</item>
+		<item>6 meses</item>
         <item>7 meses</item>
         <item>8 meses</item>
         <item>9 meses</item>
