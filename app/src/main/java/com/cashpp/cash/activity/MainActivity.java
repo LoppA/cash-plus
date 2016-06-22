@@ -1,5 +1,7 @@
 package com.cashpp.cash.activity;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -47,6 +49,14 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         // Cor do fundo da barra de status
         drawerLayout.setStatusBarBackground(R.color.primary_dark);
 
+        String menuFragment = getIntent().getStringExtra("RemindersFragment");
+
+        if (menuFragment != null) {
+            if (menuFragment.equals("OpenRemindersFragment")) {
+                onNavDrawerItemSelected(mNavDrawerFragment, 3);
+                replaceFragment(new RemindersFragment());
+            }
+        }
     }
 
 
