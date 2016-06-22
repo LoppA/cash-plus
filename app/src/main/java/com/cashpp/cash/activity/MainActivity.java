@@ -54,9 +54,17 @@ public class MainActivity extends BaseActivity implements NavigationDrawerFragme
         if (menuFragment != null) {
             if (menuFragment.equals("OpenRemindersFragment")) {
                 onNavDrawerItemSelected(mNavDrawerFragment, 3);
-                replaceFragment(new RemindersFragment());
             }
         }
+
+        menuFragment = getIntent().getStringExtra("GoalsFragment");
+
+        if (menuFragment != null) {
+            if (menuFragment.equals("OpenGoalsFragment")) {
+                onNavDrawerItemSelected(mNavDrawerFragment, 2);
+            }
+        }
+
     }
 
 

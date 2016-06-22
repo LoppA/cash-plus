@@ -11,29 +11,28 @@ import android.util.Log;
 
 import com.cashpp.cash.R;
 import com.cashpp.cash.activity.MainActivity;
-import com.cashpp.cash.notification.NotificationEventReceiver;
 
 /**
  * Created by lopa on 6/21/16.
  */
-public class NotificationIntentService extends IntentService {
+public class NotificationIntentService2 extends IntentService {
 
     private static final int NOTIFICATION_ID = 1;
     private static final String ACTION_START = "ACTION_START";
     private static final String ACTION_DELETE = "ACTION_DELETE";
 
-    public NotificationIntentService() {
-        super(NotificationIntentService.class.getSimpleName());
+    public NotificationIntentService2() {
+        super(NotificationIntentService2.class.getSimpleName());
     }
 
     public static Intent createIntentStartNotificationService(Context context) {
-        Intent intent = new Intent(context, NotificationIntentService.class);
+        Intent intent = new Intent(context, NotificationIntentService2.class);
         intent.setAction(ACTION_START);
         return intent;
     }
 
     public static Intent createIntentDeleteNotification(Context context) {
-        Intent intent = new Intent(context, NotificationIntentService.class);
+        Intent intent = new Intent(context, NotificationIntentService2.class);
         intent.setAction(ACTION_DELETE);
         return intent;
     }
@@ -64,19 +63,19 @@ public class NotificationIntentService extends IntentService {
         final NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setContentTitle("Cash++")
                 .setAutoCancel(true)
-                .setColor(getResources().getColor(R.color.primary_orange))
-                .setContentText("Lembrete")
+                .setColor(getResources().getColor(R.color.primary_red))
+                .setContentText("Metas")
                 .setSmallIcon(android.R.drawable.ic_menu_report_image);
 
         Intent notificationIntent = new Intent(this, MainActivity.class);
-        notificationIntent.putExtra("RemindersFragment", "OpenRemindersFragment*");
+        notificationIntent.putExtra("GoalsFragment", "OpenGoalsFragment");
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
                 NOTIFICATION_ID,
                 notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(pendingIntent);
-        builder.setDeleteIntent(NotificationEventReceiver.getDeleteIntent(this));
+        builder.setDeleteIntent(NotificationEventReceiver2.getDeleteIntent(this));
 
         final NotificationManager manager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(NOTIFICATION_ID, builder.build());

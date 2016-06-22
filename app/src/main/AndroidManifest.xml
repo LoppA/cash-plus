@@ -37,6 +37,19 @@
             </intent-filter>
         </receiver>
 
+
+        <service
+            android:name=".notification.NotificationIntentService2"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver android:name=".notification.NotificationEventReceiver2" />
+        <receiver android:name=".notification.NotificationServiceStarterReceiver2">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
