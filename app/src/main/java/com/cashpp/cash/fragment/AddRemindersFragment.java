@@ -14,8 +14,13 @@ import com.cashpp.cash.R;
 import com.cashpp.cash.activity.MainActivity;
 import com.cashpp.cash.db.ReminderDB;
 import com.cashpp.cash.model.Reminder;
+import com.cashpp.cash.notification.NotificationEventReceiver;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -29,6 +34,9 @@ public class AddRemindersFragment extends BaseFragment {
     private EditText title;
     private EditText value;
     private EditText date;
+    private Spinner recurrence;
+    private String data;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -74,9 +82,14 @@ public class AddRemindersFragment extends BaseFragment {
                     reminder.setRecurrence(0);
 
                     long res = reminder_db.saveReminder(reminder);
-
-
+                    
                     if (res != -1) {
+                        data = date.getText().toString();
+                        String data2;
+                        data = data.substring(0, 2) + '-' + data.substring(2+1);
+                        data = data.substring(0, 5) + '-' + data.substring(5+1);
+                        data = data + ":00";
+                        onSendNotificationsButtonClick();
                         toast("Lembrete criado com sucesso.");
                     } else {
                         toast("Erro ao criar lembrete.");
@@ -149,4 +162,18 @@ public class AddRemindersFragment extends BaseFragment {
         }
     }
 
+    public void onSendNotificationsButtonClick( ) {
+        long time = 0;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        Date date;
+        try {
+            date = sdf.parse(data);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            time = calendar.getTimeInMillis();
+            NotificationEventReceiver.setupAlarm(getActivity().getApplicationContext(), time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 }
