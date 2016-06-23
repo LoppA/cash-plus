@@ -82,7 +82,7 @@ public class AddRemindersFragment extends BaseFragment {
                     reminder.setRecurrence(0);
 
                     long res = reminder_db.saveReminder(reminder);
-                    
+
                     if (res != -1) {
                         data = date.getText().toString();
                         String data2;
