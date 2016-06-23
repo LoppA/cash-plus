@@ -1,17 +1,21 @@
 package com.cashpp.cash.fragment;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.cashpp.cash.R;
 import com.cashpp.cash.activity.MainActivity;
@@ -22,6 +26,7 @@ import com.cashpp.cash.model.Entry;
 
 import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
@@ -37,8 +42,8 @@ public class AddEntriesFragment extends BaseFragment {
     private RadioButton expense;
     private RadioButton income;
     private EditText date;
-    private Spinner recurrence;
     private Spinner category;
+    int category_id;
 
 
     @Override
@@ -62,7 +67,20 @@ public class AddEntriesFragment extends BaseFragment {
         income = (RadioButton) view.findViewById(R.id.income);
         category = (Spinner) view.findViewById(R.id.sp_category);
         date = (EditText) view.findViewById(R.id.et_date);
-        recurrence = (Spinner) view.findViewById(R.id.sp_recurrence);
+
+        category_db = new CategoryDB((MainActivity) getActivity());
+        Cursor c = category_db.getCursorForSpinner();
+        String[] from = new String[] {"title"};
+        int[] to = new int[] {android.R.id.text1};
+        SimpleCursorAdapter sca = new SimpleCursorAdapter((MainActivity) getActivity(),
+                android.R.layout.simple_spinner_dropdown_item, c, from, to);
+        category.setAdapter(sca);
+        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+                category_id = ((int) id);
+            }
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
 
         //Botão criar nova entrada
         view.findViewById(R.id.bt_register).setOnClickListener(new View.OnClickListener() {
@@ -72,48 +90,47 @@ public class AddEntriesFragment extends BaseFragment {
 
                 Entry entry = new Entry();
 
-                entry.setTitle(title.getText().toString());
+                Boolean flag = false;
+                if (title.getText().toString().isEmpty()) flag = true;
+                if (value.getText().toString().isEmpty()) flag = true;
+                if (date.getText().toString().isEmpty()) flag = true;
+                if (date.getText().toString().length() != 10) flag = true;
 
-                String value_string = value.getText().toString();
-                if (!value_string.isEmpty()) value_string = value_string.substring(2, value_string.length());
-                value_string = value_string.replace(".", "");
-                value_string = value_string.replaceAll(",", ".");
-                entry.setValue(parseDouble(value_string));
+                if (!flag) {
+                    entry.setTitle(title.getText().toString());
 
-                int type_int = type.getCheckedRadioButtonId();
-                if (type_int == expense.getId()) {
-                    entry.setType("expense");
+                    String value_string = value.getText().toString();
+                    if (!value_string.isEmpty())
+                        value_string = value_string.substring(2, value_string.length());
+                    value_string = value_string.replace(".", "");
+                    value_string = value_string.replaceAll(",", ".");
+                    entry.setValue(parseDouble(value_string));
+
+                    int type_int = type.getCheckedRadioButtonId();
+                    if (type_int == expense.getId()) {
+                        entry.setType("expense");
+                    } else {
+                        entry.setType("income");
+                    }
+
+                    entry.setCategory_id(category_id);
+
+                    entry.setDate(date.getText().toString());
+
+                    entry.setRecurrence(0);
+
+                    long res = entry_db.saveEntry(entry);
+
+                    if (res != -1) {
+                        toast("Entrada criada com sucesso.");
+                    } else {
+                        toast("Erro ao criar entrada.");
+                    }
+
+                    ((MainActivity) getActivity()).replaceFragment(new SummaryFragment());
                 } else {
-                    entry.setType("income");
+                    toast("Todos os campos são obrigatórios e a data deve estar no formato.");
                 }
-
-                //FAZER AQUI A LEITURA DE CATEGORIA
-                entry.setCategory_id(123);
-
-                entry.setDate(date.getText().toString());
-
-                String recurrence_string  = String.valueOf(recurrence.getSelectedItem());
-                recurrence_string = recurrence_string.replaceAll("mês", "");
-                recurrence_string = recurrence_string.replaceAll("meses", "");
-                recurrence_string = recurrence_string.replaceAll("Sem recorrência", "0");
-                recurrence_string = recurrence_string.replaceAll(" ", "");
-                entry.setRecurrence(parseInt(recurrence_string));
-
-                long res = entry_db.saveEntry(entry);
-
-                toast(title.getText().toString());
-                toast(value_string);
-                toast("expense");
-                toast(date.getText().toString());
-                toast(recurrence_string);
-
-                if (res != -1) {
-                    toast("Entrada criada com sucesso.");
-                } else {
-                    toast("Erro ao criar entrada.");
-                }
-
-                ((MainActivity) getActivity()).replaceFragment(new SummaryFragment());
             }
         });
 
@@ -131,7 +148,7 @@ public class AddEntriesFragment extends BaseFragment {
 
         private boolean isUpdating = false;
         // Pega a formatacao do sistema, se for brasil R$ se EUA US$
-        private NumberFormat nf = NumberFormat.getCurrencyInstance();
+        private NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before,

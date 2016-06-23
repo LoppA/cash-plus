@@ -50,8 +50,8 @@ public class GoalAdapter extends BaseAdapter {
         TextView txtValue = (TextView) view.findViewById(R.id.goals_list_value);
         TextView txtDate = (TextView) view.findViewById(R.id.goals_list_date);
         txtTitle.setText(goal.getTitle());
-        txtValue.setText(goal.getValue().toString());
-        txtDate.setText(goal.getDate());
+        txtValue.setText("Valor a ser atingido: " + goal.getValue().toString());
+        txtDate.setText("Data limite:" + goal.getDate());
 
         return view;
 

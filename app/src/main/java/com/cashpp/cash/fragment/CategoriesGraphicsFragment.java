@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 
 import com.cashpp.cash.R;
 import com.cashpp.cash.adapter.MyValueFormatter;
+import com.cashpp.cash.db.CategoryDB;
+import com.cashpp.cash.db.EntryDB;
+import com.cashpp.cash.model.Category;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.YAxis;
@@ -22,6 +25,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class CategoriesGraphicsFragment extends BaseFragment {
@@ -30,22 +34,22 @@ public class CategoriesGraphicsFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_categories_graphics, container, false);
 
         ArrayList<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(4f, 0));
-        entries.add(new Entry(5f, 1));
-        entries.add(new Entry(6f, 2));
-        entries.add(new Entry(2f, 3));
-        entries.add(new Entry(18f, 4));
-        entries.add(new Entry(5f, 5));
+
+        CategoryDB category_db = new CategoryDB(getActivity());
+        List<Category> categories_list = category_db.listCategories();
+        EntryDB entry_db = new EntryDB(getActivity());
+
+        for (int i = 0; i < categories_list.size(); i++) {
+            float num = entry_db.getExpenseByCategory(categories_list.get(i).get_id()).floatValue();
+            entries.add(new Entry(num, i));
+        }
 
         PieDataSet dataset = new PieDataSet(entries, "Chart Categories");
 
         ArrayList<String> labels = new ArrayList<String>();
-        labels.add("Mercado");
-        labels.add("Contas");
-        labels.add("Escola");
-        labels.add("Alimento");
-        labels.add("Viagem");
-        labels.add("Transporte");
+        for (int i = 0; i < categories_list.size(); i++) {
+            labels.add(categories_list.get(i).getTitle());
+        }
 
         PieChart chart = (PieChart) view.findViewById(R.id.chart2);
 

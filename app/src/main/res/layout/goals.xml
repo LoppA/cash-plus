@@ -8,8 +8,9 @@
         android:id="@+id/goals_list_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"/>
 
@@ -19,6 +20,7 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"/>
 
@@ -28,6 +30,7 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"/>
 

@@ -29,8 +29,6 @@ public class AddRemindersFragment extends BaseFragment {
     private EditText title;
     private EditText value;
     private EditText date;
-    private Spinner recurrence;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,7 +47,6 @@ public class AddRemindersFragment extends BaseFragment {
         value = (EditText) view.findViewById(R.id.et_value);
         value.addTextChangedListener(new MascaraMonetaria(value));
         date = (EditText) view.findViewById(R.id.et_date);
-        recurrence = (Spinner) view.findViewById(R.id.sp_recurrence);
 
         //Botão criar nova meta
         view.findViewById(R.id.bt_register).setOnClickListener(new View.OnClickListener() {
@@ -58,29 +55,37 @@ public class AddRemindersFragment extends BaseFragment {
                 reminder_db = new ReminderDB((MainActivity) getActivity());
 
                 Reminder reminder= new Reminder();
-                reminder.setTitle(title.getText().toString());
-                String value_string = value.getText().toString();
-                if (!value_string.isEmpty()) value_string = value_string.substring(2, value_string.length());
-                value_string = value_string.replace(".", "");
-                value_string = value_string.replaceAll(",", ".");
-                reminder.setValue(parseDouble(value_string));
-                reminder.setDate(date.getText().toString());
-                String recurrence_string = String.valueOf(recurrence.getSelectedItem());
-                recurrence_string = recurrence_string.replaceAll("mês", "");
-                recurrence_string = recurrence_string.replaceAll("meses", "");
-                recurrence_string = recurrence_string.replaceAll("Sem recorrência", "0");
-                recurrence_string = recurrence_string.replaceAll(" ", "");
-                reminder.setRecurrence(parseInt(recurrence_string));
 
-                long res = reminder_db.saveReminder(reminder);
+                Boolean flag = false;
 
-                if (res != -1) {
-                    toast("Lembrete criado com sucesso.");
+                if (title.getText().toString().isEmpty()) flag = true;
+                if (value.getText().toString().isEmpty()) flag = true;
+                if (date.getText().toString().length() != 16) flag = true;
+
+                if (!flag) {
+                    reminder.setTitle(title.getText().toString());
+                    String value_string = value.getText().toString();
+                    if (!value_string.isEmpty())
+                        value_string = value_string.substring(2, value_string.length());
+                    value_string = value_string.replace(".", "");
+                    value_string = value_string.replaceAll(",", ".");
+                    reminder.setValue(parseDouble(value_string));
+                    reminder.setDate(date.getText().toString());
+                    reminder.setRecurrence(0);
+
+                    long res = reminder_db.saveReminder(reminder);
+
+
+                    if (res != -1) {
+                        toast("Lembrete criado com sucesso.");
+                    } else {
+                        toast("Erro ao criar lembrete.");
+                    }
+
+                    ((MainActivity) getActivity()).replaceFragment(new RemindersFragment());
                 } else {
-                    toast("Erro ao criar lembrete.");
+                    toast("Todos os campos são obrigatórios e a data deve estar no formato.");
                 }
-
-                ((MainActivity) getActivity()).replaceFragment(new RemindersFragment());
             }
         });
 

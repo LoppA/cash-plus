@@ -85,23 +85,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="date"
         android:ems="10"
         android:id="@+id/et_date" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/recurrence"
-        android:textColor="@color/black"
-        android:id="@+id/tv_recurrence" />
-
-    <Spinner
-        android:id="@+id/sp_recurrence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/recurrence_array"
-        android:prompt="@string/recurrence_prompt" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -13,6 +13,8 @@ import com.cashpp.cash.R;
 import com.cashpp.cash.activity.MainActivity;
 import com.cashpp.cash.adapter.MyValueFormatter;
 import com.cashpp.cash.adapter.MyValueFormatter2;
+import com.cashpp.cash.db.EntryDB;
+import com.cashpp.cash.model.Entry;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -22,6 +24,7 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class SummaryGraphicsFragment extends BaseFragment {
@@ -30,21 +33,24 @@ public class SummaryGraphicsFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_summary_graphics, container, false);
 
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(4.42f, 0));
-        entries.add(new BarEntry(12f, 1));
-        entries.add(new BarEntry(-6f, 2));
-        entries.add(new BarEntry(2f, 3));
-        entries.add(new BarEntry(-9f, 4));
+
+        EntryDB entry_db = new EntryDB(getActivity());
+        List<Entry> entries_list = entry_db.listEntries();
+
+        for (int i = 0; i < entries_list.size(); i++) {
+            if (entries_list.get(i).getType().equals("expense"))
+                entries.add(new BarEntry(-1 * entries_list.get(i).getValue().floatValue(), i));
+            else
+                entries.add(new BarEntry(entries_list.get(i).getValue().floatValue(), i));
+        }
 
         BarDataSet dataset = new BarDataSet(entries, "Chart Summary");
 
 
         ArrayList<String> labels = new ArrayList<>();
         labels.add("Aposta");
-        labels.add("Venda");
-        labels.add("Conta");
-        labels.add("Jogo");
-        labels.add("Mercado");
+        for (int i = 0; i < entries_list.size(); i++)
+            labels.add(entries_list.get(i).getTitle());
 
         HorizontalBarChart chart = (HorizontalBarChart) view.findViewById(R.id.chart1);
 

@@ -30,6 +30,9 @@ public class SummaryEntriesFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_summary_entries, container, false);
 
+        /* Cria o objeto do BD */
+        entry_db = new EntryDB((MainActivity) getActivity());
+
         /* Pega data */
         Calendar now = Calendar.getInstance();
         int year = now.get(Calendar.YEAR);
@@ -39,6 +42,18 @@ public class SummaryEntriesFragment extends BaseFragment {
         TextView t = (TextView) view.findViewById(R.id.date_entries);
         t.setText(mes((new Integer(month))) + " " + (new Integer(year)).toString());
 
+        /* Coloca os valores no resumo */
+        TextView income = (TextView) view.findViewById(R.id.tv_income);
+        TextView expense = (TextView) view.findViewById(R.id.tv_expense);
+        TextView balance = (TextView) view.findViewById(R.id.tv_balance);
+        TextView total_balance = (TextView) view.findViewById(R.id.tv_total_balance);
+
+        expense.setText(entry_db.getMonthExpense().toString());
+        income.setText(entry_db.getMonthIncome().toString());
+        Double balance_double = entry_db.getMonthIncome() - entry_db.getMonthExpense();
+        balance.setText(balance_double.toString());
+        total_balance.setText(entry_db.getTotalBalance().toString());
+
         /* Botão para adicionar uma nova entrada */
         view.findViewById(R.id.bt_add).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,8 +62,7 @@ public class SummaryEntriesFragment extends BaseFragment {
             }
         });
 
-        //Pegando os dados do BD para popular o ListView
-        entry_db = new EntryDB((MainActivity) getActivity());
+        /* Pegando os dados do BD para popular o ListView */
         entries_list = entry_db.listEntries();
         entry_adapter = new EntryAdapter((MainActivity) getActivity(), entries_list);
 

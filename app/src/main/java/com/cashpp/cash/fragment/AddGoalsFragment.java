@@ -16,6 +16,7 @@ import com.cashpp.cash.model.Goal;
 
 import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import static java.lang.Double.parseDouble;
 
@@ -53,19 +54,37 @@ public class AddGoalsFragment extends BaseFragment {
                 goal_db = new GoalDB((MainActivity) getActivity());
 
                 Goal goal = new Goal();
-                goal.setTitle(title.getText().toString());
-                goal.setValue(parseDouble(value.getText().toString()));
-                goal.setDate(date.getText().toString());
 
-                long res = goal_db.saveGoal(goal);
+                Boolean flag = false;
 
-                if (res != -1) {
-                    toast("Meta criada com sucesso.");
+                if (title.getText().toString().isEmpty()) flag = true;
+                if (value.getText().toString().isEmpty()) flag = true;
+                if (date.getText().toString().length() != 10) flag = true;
+
+                if (!flag) {
+                    goal.setTitle(title.getText().toString());
+
+                    String value_string = value.getText().toString();
+                    if (!value_string.isEmpty())
+                        value_string = value_string.substring(2, value_string.length());
+                    value_string = value_string.replace(".", "");
+                    value_string = value_string.replaceAll(",", ".");
+                    goal.setValue(parseDouble(value_string));
+
+                    goal.setDate(date.getText().toString());
+
+                    long res = goal_db.saveGoal(goal);
+
+                    if (res != -1) {
+                        toast("Meta criada com sucesso.");
+                    } else {
+                        toast("Erro ao criar meta.");
+                    }
+
+                    ((MainActivity) getActivity()).replaceFragment(new GoalsFragment());
                 } else {
-                    toast("Erro ao criar meta.");
+                    toast("Todos os campos são obrigatórios e a data deve estar no formato.");
                 }
-
-                ((MainActivity) getActivity()).replaceFragment(new GoalsFragment());
             }
         });
 
@@ -83,7 +102,7 @@ public class AddGoalsFragment extends BaseFragment {
 
         private boolean isUpdating = false;
         // Pega a formatacao do sistema, se for brasil R$ se EUA US$
-        private NumberFormat nf = NumberFormat.getCurrencyInstance();
+        private NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before,

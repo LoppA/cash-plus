@@ -4,11 +4,16 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import com.cashpp.cash.model.Entry;
+
+import static java.lang.Integer.parseInt;
 
 public class EntryDB {
     private DatabaseHelper databaseHelper;
@@ -92,6 +97,87 @@ public class EntryDB {
         }
 
         return null;
+    }
+
+    public Double getMonthExpense() {
+        Cursor cursor = getDatabase().query(DatabaseHelper.Entries.TABLE,
+                DatabaseHelper.Entries.COLUMNS, null, null, null, null, null);
+
+        Double sum = new Double(0.0);
+        while (cursor.moveToNext()) {
+            Entry model = createEntry(cursor);
+            Calendar now = Calendar.getInstance();
+            int month = now.get(Calendar.MONTH) + 1;
+            int year = now.get(Calendar.YEAR);
+            String month_string = "" + model.getDate().charAt(0);
+            int month_db = parseInt("" + model.getDate().charAt(3) + model.getDate().charAt(4));
+            int year_db = parseInt("" + model.getDate().charAt(6) + model.getDate().charAt(7)
+                    + model.getDate().charAt(8) + model.getDate().charAt(9));
+
+            if (month == month_db && year == year_db && model.getType().equals("expense"))
+                sum += model.getValue();
+        }
+
+        cursor.close();
+
+        return sum;
+    }
+
+    public Double getMonthIncome() {
+        Cursor cursor = getDatabase().query(DatabaseHelper.Entries.TABLE,
+                DatabaseHelper.Entries.COLUMNS, null, null, null, null, null);
+
+        Double sum = new Double(0.0);
+        while (cursor.moveToNext()) {
+            Entry model = createEntry(cursor);
+            Calendar now = Calendar.getInstance();
+            int month = now.get(Calendar.MONTH) + 1;
+            int year = now.get(Calendar.YEAR);
+            String month_string = "" + model.getDate().charAt(0);
+            int month_db = parseInt("" + model.getDate().charAt(3) + model.getDate().charAt(4));
+            int year_db = parseInt("" + model.getDate().charAt(6) + model.getDate().charAt(7)
+                    + model.getDate().charAt(8) + model.getDate().charAt(9));
+
+            if (month == month_db && year == year_db && model.getType().equals("income"))
+                sum += model.getValue();
+        }
+
+        cursor.close();
+
+        return sum;
+    }
+
+    public Double getTotalBalance() {
+        Cursor cursor = getDatabase().query(DatabaseHelper.Entries.TABLE,
+                DatabaseHelper.Entries.COLUMNS, null, null, null, null, null);
+
+        Double sum = new Double(0.0);
+        while (cursor.moveToNext()) {
+            Entry model = createEntry(cursor);
+            if (model.getType().equals("income")) sum += model.getValue();
+            else sum -= model.getValue();
+        }
+
+        cursor.close();
+
+        return sum;
+    }
+
+    public Double getExpenseByCategory(int category_id) {
+        Cursor cursor = getDatabase().query(DatabaseHelper.Entries.TABLE,
+                DatabaseHelper.Entries.COLUMNS, null, null, null, null, null);
+
+        Double sum = new Double(0.0);
+        while (cursor.moveToNext()) {
+            Entry model = createEntry(cursor);
+
+            if (model.getType().equals("expense") && model.getCategory_id() == category_id)
+                sum += model.getValue();
+        }
+
+        cursor.close();
+
+        return sum;
     }
 
     public void close() {

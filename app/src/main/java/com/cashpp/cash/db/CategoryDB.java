@@ -84,6 +84,12 @@ public class CategoryDB {
         return null;
     }
 
+    public Cursor getCursorForSpinner() {
+        if (db == null) db = databaseHelper.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT _id, title FROM categories", null);
+        return c;
+    }
+
     public void close() {
         databaseHelper.close();
         db = null;

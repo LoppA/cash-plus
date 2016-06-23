@@ -19,20 +19,20 @@
     <string name="settings">Configurações</string>
     <string name="title">Título</string>
     <string name="value">Valor</string>
-    <string name="goal_date">Data limite para cumprir a meta</string>
+    <string name="goal_date">Data limite para cumprir a meta (formato dd/mm/yyyy)</string>
     <string name="create_goal">Criar Meta</string>
     <string name="back">Voltar</string>
     <string name="type">Tipo</string>
     <string name="expense">Despesa</string>
     <string name="income">Receita</string>
-    <string name="entry_date">Data da entrada</string>
+    <string name="entry_date">Data da entrada (formato dd/mm/yyyy)</string>
     <string name="recurrence">Recorrência</string>
     <string name="recurrence_prompt">Escolhe uma recorrência</string>
     <string name="create_entry">Criar Entrada</string>
     <string name="create_category">Criar Categoria</string>
     <string name="category_prompt">Escolha uma categoria</string>
     <string name="category">Categoria</string>
-    <string name="reminder_date">Data para notificação</string>
+    <string name="reminder_date">Data para notificação (formato: dd/mm/yyyy hh:mm)</string>
     <string name="create_reminder">Criar Lembrete</string>
 
     <string-array name="recurrence_array">

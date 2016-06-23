@@ -64,9 +64,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.execSQL(sql);
 
         Log.d(TAG, "Tables created successfully.");
-
-        sql = "INSERT INTO categories(title) VALUES ('Alimentação')";
-        db.execSQL(sql);
     }
 
     @Override

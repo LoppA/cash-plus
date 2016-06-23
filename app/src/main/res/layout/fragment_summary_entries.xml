@@ -40,13 +40,14 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Receita:"
+                    android:text="Receita mensal:"
                     android:textSize="18dp"
+                    android:textStyle="bold"
                     android:layout_gravity="left"
                     android:textColor="@color/black"/>
 
                 <TextView
-                    android:id="@+id/valor_receita"
+                    android:id="@+id/tv_income"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -58,6 +59,34 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/string_despesa"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Despesa mensal:"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="left"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/tv_expense"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="R$ 100,00"
+                    android:textSize="18dp"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,17 +94,18 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/string_balanço"
+                    android:id="@+id/string_balanco"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Balanço:"
+                    android:text="Balanço mensal:"
                     android:textSize="18dp"
+                    android:textStyle="bold"
                     android:layout_gravity="left"
                     android:textColor="@color/black"/>
 
                 <TextView
-                    android:id="@+id/valor_balanço"
+                    android:id="@+id/tv_balance"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -91,54 +121,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/string_despesa"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="Despesa:"
-                    android:textSize="18dp"
-                    android:layout_gravity="left"
-                    android:textColor="@color/black"/>
-
-                <TextView
-                    android:id="@+id/valor_Despesa"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="R$ 100,00"
-                    android:textSize="18dp"
-                    android:layout_gravity="right"
-                    android:gravity="right"
-                    android:textColor="@color/black"/>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
 
                 <TextView
                     android:id="@+id/string_saldo"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Receita:"
-                    android:textSize="18dp"
+                    android:text="Saldo total:"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
                     android:layout_gravity="left"
                     android:textColor="@color/black"/>
 
                 <TextView
-                    android:id="@+id/valor_saldo"
+                    android:id="@+id/tv_total_balance"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="R$ 1000,00"
-                    android:textSize="18dp"
+                    android:textSize="20dp"
                     android:layout_gravity="right"
                     android:gravity="right"
                     android:textColor="@color/black"/>
@@ -150,14 +153,23 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="10dp"
-                android:background="@color/blue"
+                android:background="@color/light_grey"
                 android:weightSum="1"
-                android:layout_marginTop="50dp">
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lista de entradas"
+                    android:textSize="26dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
 
                 <ListView
                     android:id="@+id/lvEntries"
                     android:layout_width="match_parent"
-                    android:layout_height="197dp"
+                    android:layout_height="0dp"
                     android:divider="#000"
                     android:dividerHeight="1sp"
                     android:layout_marginBottom="15dp"

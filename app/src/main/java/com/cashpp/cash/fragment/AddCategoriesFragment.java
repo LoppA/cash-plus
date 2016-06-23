@@ -45,17 +45,22 @@ public class AddCategoriesFragment extends BaseFragment {
                 category_db = new CategoryDB((MainActivity) getActivity());
 
                 Category category = new Category();
-                category.setTitle(title.getText().toString());
 
-                long res = category_db.saveCategory(category);
-
-                if (res != -1) {
-                    toast("Categoria criada com sucesso.");
+                if (title.getText().toString().isEmpty()) {
+                    toast("Campo obrigatório.");
                 } else {
-                    toast("Erro ao criar categoria.");
-                }
+                    category.setTitle(title.getText().toString());
 
-                ((MainActivity) getActivity()).replaceFragment(new CategoriesCategoriesFragment());
+                    long res = category_db.saveCategory(category);
+
+                    if (res != -1) {
+                        toast("Categoria criada com sucesso.");
+                    } else {
+                        toast("Erro ao criar categoria.");
+                    }
+
+                    ((MainActivity) getActivity()).replaceFragment(new CategoriesFragment());
+                }
             }
         });
 
